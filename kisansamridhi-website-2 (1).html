@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KisanSamridhi.com | Agricultural LLP</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --green-deep: #0f3d1f;
+    --green-mid: #1a6b38;
+    --green-light: #2d9e55;
+    --gold: #c8891a;
+    --gold-light: #f0b93a;
+    --gold-pale: #fdf3e0;
+    --cream: #faf8f2;
+    --text-dark: #1a1a1a;
+    --text-mid: #3d3d3d;
+    --white: #ffffff;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; width:100%; z-index:999;
+    background: rgba(15,61,31,0.97);
+    backdrop-filter: blur(10px);
+    padding: 0 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo svg { width:42px; height:42px; }
+  .nav-brand { color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.25rem; line-height: 1.1; }
+  .nav-brand span { color: var(--gold-light); display:block; font-size:0.7rem; letter-spacing:3px; font-family:'Crimson Pro',serif; }
+  .nav-links { display:flex; gap:28px; list-style:none; }
+  .nav-links a { color: #c8e6d0; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--green-deep) 0%, #0a2a12 40%, #162e1a 100%);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 100px 6% 60px;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(200,137,26,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(45,158,85,0.15) 0%, transparent 50%);
+  }
+  .hero::after {
+    content:''; position:absolute; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+    background-size: 4px 4px;
+  }
+  .hero-content { position: relative; z-index:2; max-width: 680px; animation: fadeUp 1s ease both; }
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(40px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(200,137,26,0.18);
+    border: 1px solid rgba(200,137,26,0.5);
+    color: var(--gold-light);
+    padding: 5px 16px; border-radius: 2px;
+    font-size: 0.78rem; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    color: var(--white); line-height: 1.1;
+    font-weight: 900; margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero p {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.18rem; line-height: 1.8;
+    margin-bottom: 40px; max-width: 560px;
+  }
+  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--green-deep); padding: 14px 34px; border-radius: 2px;
+    text-decoration: none; font-weight: 700; font-size: 0.95rem;
+    letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s;
+    border: none; cursor: pointer; display: inline-block;
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow: 0 8px 28px rgba(200,137,26,0.45); }
+  .btn-outline {
+    border: 1.5px solid rgba(200,137,26,0.6); color: var(--gold-light);
+    padding: 13px 32px; border-radius: 2px; text-decoration: none;
+    font-size: 0.95rem; letter-spacing: 1px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .btn-outline:hover { background: rgba(200,137,26,0.12); border-color: var(--gold-light); }
+
+  .hero-visual {
+    position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
+    z-index: 2; animation: fadeUp 1.2s 0.3s ease both;
+  }
+  .stats-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,137,26,0.3);
+    backdrop-filter: blur(16px); border-radius: 4px;
+    padding: 40px 44px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    min-width: 340px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--gold-light); line-height: 1; }
+  .stat-label { color: rgba(255,255,255,0.65); font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; }
+  .stat-divider { grid-column: 1/-1; height: 1px; background: rgba(200,137,26,0.25); }
+
+  /* SECTION COMMONS */
+  section { padding: 90px 6%; }
+  .section-label {
+    display: inline-block; color: var(--gold);
+    font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase;
+    border-left: 3px solid var(--gold); padding-left: 12px; margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    color: var(--green-deep); font-weight: 800;
+    line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-subtitle {
+    color: #5a6a5e; font-size: 1.1rem; line-height: 1.75;
+    max-width: 600px; margin-bottom: 56px;
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .about-card {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
+    border-radius: 4px; padding: 50px 44px;
+    color: white; position: relative; overflow: hidden;
+  }
+  .about-card::before {
+    content:''; position:absolute; top:-40px; right:-40px;
+    width:180px; height:180px; border-radius:50%;
+    background: rgba(200,137,26,0.12);
+  }
+  .about-card::after {
+    content:''; position:absolute; bottom:-30px; left:-30px;
+    width:120px; height:120px; border-radius:50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .about-mission {
+    font-family: 'Playfair Display', serif; font-size: 1.5rem;
+    font-style: italic; color: var(--gold-light);
+    margin-bottom: 20px; line-height: 1.4; position: relative; z-index:1;
+  }
+  .about-desc { color: rgba(255,255,255,0.8); font-size: 1.05rem; line-height: 1.8; position: relative; z-index:1; }
+  .about-values { display: flex; flex-direction: column; gap: 18px; margin-top: 36px; }
+  .value-item { display: flex; align-items: flex-start; gap: 14px; }
+  .value-icon {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--gold-pale); border: 2px solid rgba(200,137,26,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1rem;
+  }
+  .value-text h4 { font-family: 'Playfair Display', serif; color: var(--green-deep); font-size: 1rem; margin-bottom: 3px; }
+  .value-text p { color: #6b7c6e; font-size: 0.9rem; line-height: 1.5; }
+
+  /* LEADERSHIP */
+  .leadership {
+    background: var(--gold-pale);
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(200,137,26,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(45,158,85,0.07) 0%, transparent 50%);
+  }
+  .leaders-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+  .leader-card {
+    background: var(--white); border-radius: 4px; overflow: hidden;
+    border: 1px solid rgba(200,137,26,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .leader-card:hover { transform:translateY(-6px); box-shadow: 0 20px 50px rgba(15,61,31,0.15); }
+  .leader-top {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
+    padding: 44px 32px 32px; position: relative; text-align: center; overflow: hidden;
+  }
+  .leader-top::before {
+    content:''; position:absolute; top:-20px; right:-20px;
+    width:100px; height:100px; border-radius:50%; background:rgba(200,137,26,0.15);
+  }
+  .leader-avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: rgba(255,255,255,0.12); border: 3px solid var(--gold-light);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 2rem;
+    color: var(--gold-light); font-weight:700;
+    margin: 0 auto 16px; position: relative; z-index:1;
+  }
+  .leader-name { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.3rem; font-weight: 700; position: relative; z-index:1; }
+  .leader-role { color: var(--gold-light); font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; position: relative; z-index:1; }
+  .leader-body { padding: 28px 32px; }
+  .leader-body p { color: var(--text-mid); font-size: 1rem; line-height: 1.75; }
+  .leader-tag {
+    display: inline-block; background: rgba(15,61,31,0.08); color: var(--green-mid);
+    padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; margin-top: 14px; letter-spacing: 1px;
+  }
+
+  /* NETWORK */
+  .network { background: var(--white); }
+  .network-hero-row {
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 64px; align-items: center; margin-bottom: 72px;
+  }
+  .mother-shop-card {
+    background: linear-gradient(160deg, var(--green-deep) 0%, #0a2a12 100%);
+    border-radius: 6px; padding: 48px 44px; color: white;
+    border-left: 5px solid var(--gold); position: relative; overflow: hidden;
+  }
+  .mother-shop-card::before { content: '⭐'; position: absolute; top:20px; right:24px; font-size: 3rem; opacity:0.15; }
+  .mother-badge {
+    display: inline-block; background: var(--gold); color: var(--green-deep);
+    padding: 4px 14px; font-size: 0.72rem; letter-spacing: 2.5px;
+    text-transform: uppercase; font-weight: 700; border-radius: 1px; margin-bottom: 20px;
+  }
+  .mother-shop-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+  .mother-shop-card p { color: rgba(255,255,255,0.75); line-height: 1.8; font-size: 1rem; }
+  .mother-detail { margin-top: 24px; display: flex; flex-direction:column; gap: 10px; }
+  .detail-row { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+  .detail-row span:first-child { color: var(--gold-light); }
+  .franchise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .franchise-card {
+    background: var(--gold-pale); border: 1px solid rgba(200,137,26,0.25);
+    border-radius: 4px; padding: 22px 24px;
+    display: flex; align-items: center; gap: 16px;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .franchise-card:hover { transform:translateX(4px); background: #fdeec7; }
+  .franchise-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); font-weight:900; min-width: 36px; }
+  .franchise-info h4 { color: var(--green-deep); font-size:0.95rem; font-weight:600; }
+  .franchise-info p { color: #7a8a7d; font-size:0.82rem; margin-top:2px; }
+
+  /* SERVICES */
+  .services {
+    background: var(--green-deep);
+    background-image: radial-gradient(ellipse at 80% 20%, rgba(200,137,26,0.1) 0%, transparent 50%);
+  }
+  .services .section-label { color: var(--gold-light); }
+  .services .section-title { color: var(--white); }
+  .services .section-subtitle { color: rgba(255,255,255,0.65); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(200,137,26,0.2);
+    border-radius: 4px; padding: 36px 30px;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  .service-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(200,137,26,0.5); transform: translateY(-4px); }
+  .service-icon { font-size: 2.4rem; margin-bottom: 18px; display:block; }
+  .service-card h3 { font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 1.15rem; margin-bottom: 10px; }
+  .service-card p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.7; }
+  .service-items { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .service-tag {
+    background: rgba(200,137,26,0.15); border: 1px solid rgba(200,137,26,0.3);
+    color: var(--gold-light); padding: 3px 10px; border-radius: 20px; font-size: 0.75rem;
+  }
+
+  /* FRANCHISE CTA */
+  .franchise-cta { background: var(--gold-pale); text-align: center; padding: 90px 6%; }
+  .franchise-cta .section-label { display:block; text-align:center; margin:0 auto 14px; border:none; padding:0; }
+  .franchise-cta .section-title { text-align: center; }
+  .cta-box {
+    max-width: 760px; margin: 48px auto 0;
+    background: var(--white); border-radius: 6px;
+    border: 1px solid rgba(200,137,26,0.25); padding: 52px;
+    box-shadow: 0 20px 60px rgba(15,61,31,0.08);
+  }
+  .cta-box p { color: var(--text-mid); font-size: 1.1rem; line-height: 1.8; margin-bottom: 32px; }
+  .cta-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 36px; text-align: left; }
+  .cta-feat { display: flex; align-items: flex-start; gap: 12px; }
+  .cta-feat-icon { width:36px; height:36px; background: rgba(15,61,31,0.08); border-radius: 50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem; }
+  .cta-feat h4 { color:var(--green-deep); font-size:0.9rem; font-weight:600; margin-bottom:2px; }
+  .cta-feat p { color:#7a8a7d; font-size:0.82rem; line-height:1.4; }
+
+  /* CONTACT */
+  .contact { background: var(--white); display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+  .contact-card { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+  .contact-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--gold-pale); border: 2px solid rgba(200,137,26,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+  .contact-card h4 { color: var(--green-deep); font-size: 0.85rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom: 4px; }
+  .contact-card p { color: var(--text-mid); font-size: 1rem; line-height:1.6; }
+  .contact-form { background: var(--gold-pale); border-radius:4px; padding:40px; border:1px solid rgba(200,137,26,0.2); }
+  .contact-form h3 { font-family:'Playfair Display',serif; color:var(--green-deep); font-size:1.4rem; margin-bottom:24px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display:block; color:var(--green-deep); font-size:0.85rem; letter-spacing:1px; margin-bottom:6px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width:100%; padding:12px 16px; border: 1.5px solid rgba(200,137,26,0.3);
+    border-radius: 2px; background: var(--white);
+    font-family: 'Crimson Pro', serif; font-size: 1rem; color: var(--text-dark);
+    outline: none; transition: border-color 0.3s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height:100px; }
+
+  /* FOOTER */
+  footer { background: var(--green-deep); padding: 60px 6% 32px; border-top: 3px solid var(--gold); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+  .footer-brand p { color: rgba(255,255,255,0.6); font-size:0.95rem; line-height:1.8; margin-top:16px; max-width:320px; }
+  .footer-col h4 { color: var(--gold-light); font-size:0.8rem; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:18px; }
+  .footer-col ul { list-style:none; }
+  .footer-col ul li { margin-bottom:10px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size:0.95rem; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { color: rgba(255,255,255,0.4); font-size:0.85rem; }
+  .footer-tm { color: var(--gold-light); font-size:0.85rem; letter-spacing:1px; }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media(max-width: 1100px) {
+    .hero-visual { display:none; }
+    .about { grid-template-columns:1fr; gap:40px; }
+    .network-hero-row { grid-template-columns:1fr; }
+    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .contact { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:720px) {
+    nav { padding:0 4%; }
+    .nav-links { display:none; }
+    section { padding:60px 5%; }
+    .hero { padding:90px 5% 50px; }
+    .hero h1 { font-size:2.2rem; }
+    .services-grid { grid-template-columns:1fr; }
+    .cta-features { grid-template-columns:1fr; }
+    .franchise-grid { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr; gap:36px; }
+    .footer-bottom { flex-direction:column; gap:10px; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21 3 L38 10 L38 26 Q21 40 21 40 Q21 40 4 26 L4 10 Z" fill="#1a6b38"/>
+      <path d="M21 3 L38 10 L38 26 Q21 40 21 40 Q21 40 4 26 L4 10 Z" fill="none" stroke="#c8891a" stroke-width="1.2"/>
+      <line x1="15" y1="30" x2="15" y2="12" stroke="#f0b93a" stroke-width="1.2"/>
+      <ellipse cx="15" cy="13" rx="3.5" ry="5.5" fill="#f0b93a" transform="rotate(-15,15,13)"/>
+      <ellipse cx="15" cy="20" rx="3" ry="4.5" fill="#f0b93a" transform="rotate(-12,15,20)"/>
+      <ellipse cx="15" cy="14" rx="3.5" ry="5" fill="#f0b93a" transform="rotate(18,15,14)"/>
+      <line x1="27" y1="30" x2="27" y2="12" stroke="#f0b93a" stroke-width="1.2"/>
+      <ellipse cx="27" cy="13" rx="3.5" ry="5.5" fill="#f0b93a" transform="rotate(-15,27,13)"/>
+      <ellipse cx="27" cy="20" rx="3" ry="4.5" fill="#f0b93a" transform="rotate(-12,27,20)"/>
+      <ellipse cx="27" cy="14" rx="3.5" ry="5" fill="#f0b93a" transform="rotate(18,27,14)"/>
+      <circle cx="21" cy="17" r="4" fill="#f0b93a"/>
+    </svg>
+    <div class="nav-brand">
+      KisanSamridhi
+      <span>AGRICULTURAL LLP</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#network">Network</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#franchise">Franchise</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">🌾 Registered Trademark ™ | kisansamridhi.com</div>
+    <h1>Empowering Farmers,<br/>Building <span>Prosperity</span></h1>
+    <p>KisanSamridhi LLP is a premium agricultural input company based in Chhindwara, Madhya Pradesh — delivering quality products, expert guidance, and a trusted distribution network to farmers across the region.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Explore Our Products</a>
+      <a href="#franchise" class="btn-outline">Become a Franchise Partner</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="stats-card">
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Franchise Outlets</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">MP</div>
+        <div class="stat-label">State Coverage</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Mother Store</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">LLP</div>
+        <div class="stat-label">Registered Co.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text fade-in">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">Farmers First,<br/>Business Second</h2>
+    <p class="section-subtitle">KisanSamridhi is a mission-driven agricultural LLP founded in Chhindwara, Madhya Pradesh — expanding its reach across the entire state through a strong franchise network.</p>
+    <div class="about-values">
+      <div class="value-item">
+        <div class="value-icon">🌱</div>
+        <div class="value-text">
+          <h4>Quality Agricultural Inputs</h4>
+          <p>Seeds, fertilizers, and pesticides — all sourced from certified and trusted brands.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🤝</div>
+        <div class="value-text">
+          <h4>Integrated Distribution Network</h4>
+          <p>From our mother store to 10 franchise outlets — a seamless supply chain across Madhya Pradesh.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">📚</div>
+        <div class="value-text">
+          <h4>Expert Agricultural Guidance</h4>
+          <p>MSc Agriculture qualified team providing complete support — from field to market.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fade-in">
+    <div class="about-card">
+      <div class="about-mission">"Prosperity in every field, abundance in every home."</div>
+      <p class="about-desc">Our vision is to ensure that every farmer in Madhya Pradesh has access to quality agricultural inputs — at the right time, at the right price. KisanSamridhi LLP is bringing this vision to life through a strong, transparent, and farmer-first business model.</p>
+      <div class="mother-detail" style="margin-top:30px;">
+        <div class="detail-row"><span>🏢</span><span>Registered as LLP — KisanSamridhi</span></div>
+        <div class="detail-row"><span>™</span><span>Trademark: KisanSamridhi.com</span></div>
+        <div class="detail-row"><span>📍</span><span>Chhindwara, Madhya Pradesh</span></div>
+        <div class="detail-row"><span>🌐</span><span>kisansamridhi.com</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leadership" id="leadership">
+  <div style="text-align:center; margin-bottom:52px;" class="fade-in">
+    <div class="section-label">Our Leadership</div>
+    <h2 class="section-title">The People Behind KisanSamridhi</h2>
+    <p class="section-subtitle" style="margin:0 auto;">Our leadership team brings deep expertise in agriculture — from ground-level field operations to strategic business development.</p>
+  </div>
+
+  <div class="leaders-grid">
+    <div class="leader-card fade-in">
+      <div class="leader-top">
+        <div class="leader-avatar">JC</div>
+        <div class="leader-name">Jitendra Choure</div>
+        <div class="leader-role">Founder &amp; Director</div>
+      </div>
+      <div class="leader-body">
+        <p>Mr. Jitendra Choure is the founding visionary behind KisanSamridhi. He laid the foundation of the company with a clear mission: to build an integrated, trustworthy agricultural service network for the farmers of Madhya Pradesh.</p>
+        <p style="margin-top:12px;">His leadership has driven the company's growth from Chhindwara into a multi-district franchise presence across MP.</p>
+        <span class="leader-tag">🌾 Visionary Founder</span>
+        <span class="leader-tag" style="margin-left:6px;">📍 Chhindwara, MP</span>
+      </div>
+    </div>
+
+    <div class="leader-card fade-in">
+      <div class="leader-top">
+        <div class="leader-avatar">KP</div>
+        <div class="leader-name">Kewalram Punde</div>
+        <div class="leader-role">Chief Executive Officer</div>
+      </div>
+      <div class="leader-body">
+        <p>Mr. Kewalram Punde holds an MSc in Agriculture (Livestock Production Management) and brings extensive field experience from ITC Mission Sunehra Kal, FPO coordination, and agri-input sales across multiple districts.</p>
+        <p style="margin-top:12px;">His hands-on experience across Betul, Chhindwara, and Hoshangabad districts directly shapes the company's operational and growth strategy.</p>
+        <span class="leader-tag">🎓 MSc Agriculture</span>
+        <span class="leader-tag" style="margin-left:6px;">🏆 ITC Alumni</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section class="network" id="network">
+  <div class="fade-in" style="margin-bottom:52px;">
+    <div class="section-label">Our Network</div>
+    <h2 class="section-title">Mother Store &amp; Franchise Outlets</h2>
+    <p class="section-subtitle">One central hub and 10 franchise outlets — our network delivers quality agricultural inputs directly to farmers across Madhya Pradesh.</p>
+  </div>
+
+  <div class="network-hero-row">
+    <div class="mother-shop-card fade-in">
+      <div class="mother-badge">⭐ Mother Store — Flagship Location</div>
+      <h3>Mahakal Krishi Samridhi Kendra</h3>
+      <p>Our flagship mother store, located in Chhindwara, serves as the central supply hub for all 10 franchise outlets. It offers a full range of agricultural inputs, expert advisory services, and crop management solutions — all under one roof.</p>
+      <div class="mother-detail">
+        <div class="detail-row"><span>📍</span><span>Chhindwara, Madhya Pradesh</span></div>
+        <div class="detail-row"><span>🏪</span><span>Complete Agricultural Input Store</span></div>
+        <div class="detail-row"><span>📦</span><span>Central Supply Hub for All Outlets</span></div>
+        <div class="detail-row"><span>📞</span><span>Advisory &amp; Farmer Support Services</span></div>
+      </div>
+    </div>
+
+    <div class="franchise-grid fade-in">
+      <div class="franchise-card"><div class="franchise-num">01</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">02</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">03</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">04</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">05</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">06</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">07</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">08</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">09</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+      <div class="franchise-card"><div class="franchise-num">10</div><div class="franchise-info"><h4>Franchise Outlet</h4><p>Madhya Pradesh</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div style="text-align:center; margin-bottom:52px;" class="fade-in">
+    <div class="section-label">Products &amp; Services</div>
+    <h2 class="section-title">Our Product Range</h2>
+    <p class="section-subtitle" style="margin:0 auto;">From Kharif to Rabi season — all crops, all needs, all in one place.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <span class="service-icon">🌾</span>
+      <h3>Seeds</h3>
+      <p>Certified hybrid and improved variety seeds delivering maximum yield. Available for all major crops.</p>
+      <div class="service-items">
+        <span class="service-tag">Paddy</span>
+        <span class="service-tag">Soybean</span>
+        <span class="service-tag">Cotton</span>
+        <span class="service-tag">Maize</span>
+        <span class="service-tag">Wheat</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🧪</span>
+      <h3>Fertilizers</h3>
+      <p>Micro and macro nutrients for optimal soil health — balanced fertilization for higher productivity.</p>
+      <div class="service-items">
+        <span class="service-tag">Urea / DAP</span>
+        <span class="service-tag">NPK Mix</span>
+        <span class="service-tag">Micro Nutrients</span>
+        <span class="service-tag">Bio Fertilizer</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🛡️</span>
+      <h3>Pesticides</h3>
+      <p>Complete crop protection — insecticides, fungicides, and herbicides — safe and highly effective.</p>
+      <div class="service-items">
+        <span class="service-tag">Insecticide</span>
+        <span class="service-tag">Fungicide</span>
+        <span class="service-tag">Herbicide</span>
+        <span class="service-tag">Bio Pesticide</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">💧</span>
+      <h3>Irrigation Solutions</h3>
+      <p>Drip, sprinkler, and micro-irrigation systems — conserve water, maximize crop output.</p>
+      <div class="service-items">
+        <span class="service-tag">Drip System</span>
+        <span class="service-tag">Sprinkler</span>
+        <span class="service-tag">Pipes &amp; Fittings</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🌿</span>
+      <h3>Crop Advisory</h3>
+      <p>Direct consultation with MSc Agriculture qualified experts — in the field, by phone, or at our store.</p>
+      <div class="service-items">
+        <span class="service-tag">Soil Testing</span>
+        <span class="service-tag">Crop Planning</span>
+        <span class="service-tag">Disease Management</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🏪</span>
+      <h3>Franchise Support</h3>
+      <p>Start your own agricultural input shop — backed by our brand, supply chain, and expert team.</p>
+      <div class="service-items">
+        <span class="service-tag">Training</span>
+        <span class="service-tag">Stock Support</span>
+        <span class="service-tag">Branding</span>
+        <span class="service-tag">Marketing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRANCHISE CTA -->
+<section class="franchise-cta" id="franchise">
+  <div class="fade-in">
+    <div class="section-label">Join Our Network</div>
+    <h2 class="section-title">Become a KisanSamridhi Franchise Partner</h2>
+  </div>
+  <div class="cta-box fade-in">
+    <p>Whether you want to start a new agricultural input shop or scale up an existing business — the KisanSamridhi franchise is a proven, high-potential opportunity. Launch with our trusted brand, established supply chain, and dedicated expert support.</p>
+    <div class="cta-features">
+      <div class="cta-feat">
+        <div class="cta-feat-icon">📦</div>
+        <div>
+          <h4>Guaranteed Supply</h4>
+          <p>Direct, timely stock delivery from our mother store to your outlet.</p>
+        </div>
+      </div>
+      <div class="cta-feat">
+        <div class="cta-feat-icon">🎓</div>
+        <div>
+          <h4>Training &amp; Support</h4>
+          <p>Comprehensive product knowledge and sales training provided.</p>
+        </div>
+      </div>
+      <div class="cta-feat">
+        <div class="cta-feat-icon">™</div>
+        <div>
+          <h4>Registered Brand</h4>
+          <p>Leverage the power of our trademark-registered brand identity.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#contact" class="btn-primary" style="font-size:1rem; padding:16px 44px;">Contact Us for Franchise Details →</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info fade-in">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Talk to Our<br/>Agricultural Experts</h2>
+    <p style="color:#5a6a5e; font-size:1.1rem; line-height:1.8; margin-bottom:40px;">Whether it's seed selection, crop management, or franchise inquiries — our team is always ready to assist you.</p>
+
+    <div class="contact-card">
+      <div class="contact-icon">🏪</div>
+      <div>
+        <h4>Mother Store</h4>
+        <p>Mahakal Krishi Samridhi Kendra<br/>Chhindwara, Madhya Pradesh</p>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">🌐</div>
+      <div>
+        <h4>Website</h4>
+        <p>kisansamridhi.com</p>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">👤</div>
+      <div>
+        <h4>CEO — Kewalram Punde</h4>
+        <p>MSc Agriculture | Agricultural Expert<br/>ITC Mission Sunehra Kal Alumni</p>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">🏢</div>
+      <div>
+        <h4>Founder — Jitendra Choure</h4>
+        <p>Director, KisanSamridhi LLP</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form fade-in">
+    <h3>Send Us a Message</h3>
+    <div class="form-group">
+      <label>Your Full Name</label>
+      <input type="text" placeholder="Enter your name..."/>
+    </div>
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="tel" placeholder="+91 XXXXX XXXXX"/>
+    </div>
+    <div class="form-group">
+      <label>Your Requirement</label>
+      <select>
+        <option>Seeds</option>
+        <option>Fertilizers</option>
+        <option>Pesticides</option>
+        <option>Franchise Inquiry</option>
+        <option>Crop Advisory</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Describe your requirement or question..."></textarea>
+    </div>
+    <button class="btn-primary" style="width:100%; font-size:1rem; padding:14px;" onclick="alert('Message sent! Our team will contact you shortly.')">Send Message →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="font-family:'Playfair Display',serif; color:white; font-size:1.5rem; font-weight:700;">
+        Kisan<span style="color:var(--gold-light);">Samridhi</span> <sup style="font-size:0.7rem; color:var(--gold);">™</sup>
+      </div>
+      <div style="color:rgba(255,255,255,0.4); font-size:0.75rem; letter-spacing:2px; margin-top:4px;">AGRICULTURAL LLP | kisansamridhi.com</div>
+      <p>Founded in Chhindwara, Madhya Pradesh — serving farmers across the state with quality inputs, expert guidance, and a trusted distribution network.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#network">Our Network</a></li>
+        <li><a href="#services">Products</a></li>
+        <li><a href="#franchise">Franchise</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="#">Seeds</a></li>
+        <li><a href="#">Fertilizers</a></li>
+        <li><a href="#">Pesticides</a></li>
+        <li><a href="#">Irrigation Systems</a></li>
+        <li><a href="#">Crop Advisory</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 KisanSamridhi LLP. All Rights Reserved.</p>
+    <div class="footer-tm">KisanSamridhi™ — Registered Trademark</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if(window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#'+current ? 'var(--gold-light)' : ''; });
+  });
+</script>
+</body>
+</html>
