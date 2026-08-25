@@ -1,0 +1,310 @@
+/* ==========================================================================
+   KISANSAMRIDHI LLP - RESPONSIVE STYLES (MOBILE-FIRST POLISH)
+   ========================================================================== */
+
+/* Tablet & Smaller Laptops (Max 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-floating-card {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin-top: 16px;
+    max-width: 100%;
+  }
+
+  .hub-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .franchise-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+}
+
+/* Mobile Devices (Max 768px) */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 68px; /* Space for sticky bottom bar */
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .top-bar-left .hide-mobile {
+    display: none;
+  }
+
+  .top-bar {
+    font-size: 0.76rem;
+    padding: 6px 0;
+  }
+
+  .navbar-inner {
+    height: 64px;
+  }
+
+  .nav-menu,
+  .nav-actions .btn-whatsapp {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 50px 0 70px;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .hero-desc {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .hero-trust-badges {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .calc-card {
+    padding: 20px 16px;
+  }
+
+  .calc-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .calc-results {
+    padding: 20px 16px;
+  }
+
+  .result-rows {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .result-pill-val {
+    font-size: 1.15rem;
+  }
+
+  .category-tabs {
+    gap: 6px;
+  }
+
+  .cat-tab {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .mother-hub-card {
+    padding: 26px 18px;
+  }
+
+  .hub-title {
+    font-size: 1.45rem;
+  }
+
+  .hub-features {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .franchise-box {
+    padding: 30px 18px;
+  }
+
+  .franchise-steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact-form-card {
+    padding: 24px 18px;
+  }
+
+  .footer {
+    padding: 50px 0 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .floating-whatsapp {
+    bottom: 80px; /* Above the mobile bottom action bar */
+    right: 16px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+
+  .mobile-bottom-bar {
+    display: block;
+  }
+}
+
+/* Small Screens (Max 380px) */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .brand-text h1 {
+    font-size: 1.1rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+  }
+
+  .stats-matrix {
+    grid-template-columns: 1fr;
+  }
+
+  .result-rows {
+    grid-template-columns: 1fr;
+  }
+
+  .top-bar-item span {
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Mobile Drawer Component Styles */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-smooth);
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 330px;
+  height: 100vh;
+  background: var(--primary-900);
+  z-index: 1002;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  border-left: 2px solid var(--gold-500);
+  overflow-y: auto;
+}
+
+.mobile-drawer.active {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drawer-close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.drawer-links a {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.drawer-links a:hover {
+  color: var(--gold-300);
+  padding-left: 4px;
+}
